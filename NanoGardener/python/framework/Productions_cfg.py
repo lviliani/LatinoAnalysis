@@ -313,6 +313,14 @@ Productions = {
                        'year'    : '2017' ,
                    },
 
+ 'Run2017_102X_nAODv4_Full2017v5_ForNewWPs': {
+                       'isData'  : True ,
+                       'jsonFile'   : '"%s/src/LatinoAnalysis/NanoGardener/python/data/certification/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt"  % os.environ["CMSSW_BASE"]',
+                       'samples' : 'LatinoAnalysis/NanoGardener/python/framework/samples/Run2017_102X_nAODv4.py' ,
+                       'cmssw'   : 'Full2017v5_ForNewWPs',
+                       'year'    : '2017' ,
+                   },
+
  # -------- 2017 MC 102X nAODv4 : Full2017v5 -> Tight Isolation
  'Fall2017_102X_nAODv4_Full2017v5' : {
                        'isData'  : False ,

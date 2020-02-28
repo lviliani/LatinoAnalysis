@@ -1651,6 +1651,335 @@ ElectronWP = {
 
 },
 
+###____________________Full2017v5_ForNewWPs__________________________
+'Full2017v5_ForNewWPs': {
+
+
+## ------------  
+
+ 'VetoObjWP' : { 
+           'HLTsafe' : { 
+                         'cuts' : { 
+                               # Common cuts
+                               'True' :
+                                [
+                                  'False'
+                                ] ,             
+                                   },
+                       } ,
+                 } ,
+  
+ # ------------ 
+ 'FakeObjWP'  : {
+
+           'HLTsafe' : { 
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                  [
+                                   'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                   'electron_col[LF_idx]["cutBased_Fall17_V1"] >= 3',
+                                   'electron_col[LF_idx]["convVeto"] == 1', 
+                                  ] ,             
+                                # Barrel
+                                'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                  [
+                                   'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                   'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                  ] ,
+                                # EndCap
+                                'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                  [
+                                   'electron_col[LF_idx]["sieie"] < 0.03 ' ,                           
+                                   'abs(electron_col[LF_idx]["eInvMinusPInv"]) < 0.014' ,
+                                   'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                   'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                  ] ,
+                                   },
+                       } ,
+
+                 } ,
+ 
+# ------------ 
+'TightObjWP' : {
+
+          # ----- mvaFall17V1Iso
+
+          'mvaFall17V1Iso_WP90':  {
+                         'cuts' : { 
+                                # Common cuts 
+                                'True' :
+                                   [
+                                     'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                     'electron_col[LF_idx]["mvaFall17V1Iso_WP90"]',
+                                     'electron_col[LF_idx]["convVeto"] == 1',
+                                     'electron_col[LF_idx]["pfRelIso03_all"] < 0.06',
+                                   ] ,
+                                # Barrel
+                                 'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                   ] ,
+                                 # EndCap
+                                 'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                   ] ,
+                                  } ,
+                         'tkSF':  { 
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runB_passingRECO_combineLowEt.root',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runC_passingRECO_combineLowEt.root',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runD_passingRECO_combineLowEt.root',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runE_passingRECO_combineLowEt.root',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runF_passingRECO_combineLowEt.root',
+                                  } ,
+                         'wpSF':  {
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runB.txt' ,
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runC.txt' ,
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runD.txt' ,
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runE.txt' ,
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runF.txt' ,
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/mvaFall17V1Iso_WP90/',
+                              } ,
+
+
+          'mvaFall17V1Iso_WP90_tthmva_70':  {
+                         'cuts' : { 
+                                # Common cuts 
+                                'True' :
+                                   [
+                                     'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                     'electron_col[LF_idx]["mvaFall17V1Iso_WP90"]',
+                                     'electron_col[LF_idx]["convVeto"] == 1',
+                                     'electron_col[LF_idx]["pfRelIso03_all"] < 0.06',
+                                     'electron_col[LF_idx]["mvaTTH"] > 0.7'
+                                   ] ,
+                                # Barrel
+                                 'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                   ] ,
+                                 # EndCap
+                                 'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                   ] ,
+                                  } ,
+                         'tkSF':  { 
+                                    #'1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runB_passingRECO_combineLowEt.root',
+                                    #'2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runC_passingRECO_combineLowEt.root',
+                                    #'3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runD_passingRECO_combineLowEt.root',
+                                    #'4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runE_passingRECO_combineLowEt.root',
+                                    #'5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runF_passingRECO_combineLowEt.root',
+                                  } ,
+                         'wpSF':  {
+                                    #'1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runB.txt' ,
+                                    #'2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runC.txt' ,
+                                    #'3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runD.txt' ,
+                                    #'4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runE.txt' ,
+                                    #'5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runF.txt' ,
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/tighterEleWP/',
+                              } ,
+
+          'mvaFall17V1Iso_WP90_SS':  {
+                         'cuts' : { 
+                                # Common cuts 
+                                'True' :
+                                   [
+                                     'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                     'electron_col[LF_idx]["mvaFall17V1Iso_WP90"]',
+                                     'electron_col[LF_idx]["convVeto"] == 1',
+                                     'electron_col[LF_idx]["pfRelIso03_all"] < 0.06', 
+                                     'electron_col[LF_idx]["tightCharge"] == 2',
+                                   ] ,
+                                # Barrel
+                                 'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                   ] ,
+                                 # EndCap
+                                 'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                   ] ,
+                                  } ,
+                         'tkSF':  { 
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runB_passingRECO_combineLowEt.root',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runC_passingRECO_combineLowEt.root',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runD_passingRECO_combineLowEt.root',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runE_passingRECO_combineLowEt.root',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runF_passingRECO_combineLowEt.root',
+                                  } ,
+                         'wpSF':  {
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runB.txt',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runC.txt',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runD.txt',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runE.txt',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runF.txt',
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/mvaFall17V1Iso_WP90_SS/',
+                              } ,
+
+
+          # ----- mvaFall17V2Iso
+
+          'mvaFall17V2Iso_WP90':  {
+                         'cuts' : { 
+                                # Common cuts 
+                                'True' :
+                                   [
+                                     'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                     'electron_col[LF_idx]["mvaFall17V2Iso_WP90"]',
+                                     'electron_col[LF_idx]["convVeto"] == 1',
+                                     'electron_col[LF_idx]["pfRelIso03_all"] < 0.06', 
+                                   ] ,
+                                # Barrel
+                                 'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                   ] ,
+                                 # EndCap
+                                 'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                   ] ,
+                                  } ,
+                         'tkSF':  { 
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runB_passingRECO_combineLowEt.root',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runC_passingRECO_combineLowEt.root',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runD_passingRECO_combineLowEt.root',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runE_passingRECO_combineLowEt.root',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runF_passingRECO_combineLowEt.root',
+                                  } ,
+                         'wpSF':  {
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runB.txt' ,
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runC.txt' ,
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runD.txt' ,
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runE.txt' ,
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runF.txt' ,
+                                  } ,
+                        #'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/mvaFall17V2Iso_WP90',
+                        'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017CutBased/',
+                              } ,
+ 
+          'mvaFall17V2Iso_WP90_SS':  {
+                         'cuts' : { 
+                                # Common cuts 
+                                'True' :
+                                   [
+                                     'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                     'electron_col[LF_idx]["mvaFall17V2Iso_WP90"]',
+                                     'electron_col[LF_idx]["convVeto"] == 1',
+                                     'electron_col[LF_idx]["pfRelIso03_all"] < 0.06',
+                                     'electron_col[LF_idx]["tightCharge"] == 2',
+                                   ] ,
+                                # Barrel
+                                 'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                   ] ,
+                                 # EndCap
+                                 'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                   [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                   ] ,
+                                  } ,
+                         'tkSF':  { 
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runB_passingRECO_combineLowEt.root',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runC_passingRECO_combineLowEt.root',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runD_passingRECO_combineLowEt.root',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runE_passingRECO_combineLowEt.root',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runF_passingRECO_combineLowEt.root',
+                                  } ,
+                         'wpSF':  {
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runB.txt',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runC.txt',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runD.txt',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runE.txt',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoSSHWWiso0p06_2017runF.txt',
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/mvaFall17V2Iso_WP90_SS/',
+                              } ,
+
+             },
+
+ # ------------ 
+ 'WgStarObjWP' : {
+
+         'mvaFall17Iso_WP90' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                  [
+                                     'abs(electron_col[LF_idx]["eta"]) < 2.5' ,
+                                     'electron_col[LF_idx]["cutBased_Fall17_V1"] >= 3',
+                                     'electron_col[LF_idx]["mvaFall17V1noIso_WP90"]',
+                                     'electron_col[LF_idx]["convVeto"] == 1',
+                                  ] ,
+                                # Barrel
+                                'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                  [
+                                     'abs(electron_col[LF_idx]["dxy"]) < 0.05' ,
+                                     'abs(electron_col[LF_idx]["dz"]) < 0.1'  ,
+                                  ] ,
+                                # EndCap
+                                'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                  [
+                                   'electron_col[LF_idx]["sieie"] < 0.03 ' ,
+                                   'abs(electron_col[LF_idx]["eInvMinusPInv"]) < 0.014' ,
+                                   'abs(electron_col[LF_idx]["dxy"]) < 0.1' ,
+                                   'abs(electron_col[LF_idx]["dz"]) < 0.2'  ,
+                                  ] ,
+                                  } ,
+                         'cuts_iso': {
+                                # Common cuts
+                                'True' :
+                                [
+                                  '0.06',
+                                ],
+                                # Barrel
+                                'abs(electron_col[LF_idx]["eta"]) <= 1.479' :
+                                [
+                                  'None' 
+                                ],
+                                # EndCap
+                                'abs(electron_col[LF_idx]["eta"]) > 1.479' :
+                                [
+                                  'None' 
+                                ],
+                                  },
+                         'iso': ['pfRelIso03_all', 0.3],
+                         'tkSF':  {
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runB_passingRECO_combineLowEt.root',
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runC_passingRECO_combineLowEt.root',
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runD_passingRECO_combineLowEt.root',
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runE_passingRECO_combineLowEt.root',
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi.txt_EGM2D_runF_passingRECO_combineLowEt.root',
+                                  } ,
+                         'wpSF':  {
+                                    '1-1' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runB.txt' ,
+                                    '2-2' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runC.txt' ,
+                                    '3-3' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runD.txt' ,
+                                    '4-4' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runE.txt' ,
+                                    '5-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017v5/egammaEffi_passingMVA102Xwp90isoHWWiso0p06_2017runF.txt' ,
+                                  } ,
+                             } ,
+
+                 } ,
+
+},
 
 ###____________________Full2017v6__________________________
 'Full2017v6': {
@@ -4406,6 +4735,270 @@ MuonWP = {
                  }, 
 },
 
+###____________________Full2017v5_ForNewWPs__________________________
+
+'Full2017v5_ForNewWPs': {
+
+## ------------  
+ 'VetoObjWP' : { 
+      'HLTsafe' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' , 
+                                   'muon_col[LF_idx]["pt"] > 10.0' ,
+                                 ]
+                                  } ,
+                   }
+               } ,
+
+ # ------------ 
+ 'FakeObjWP'  : {
+
+      'HLTsafe' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' , 
+                                   'muon_col[LF_idx]["tightId"] == 1' ,
+                                   'abs(muon_col[LF_idx]["dz"]) < 0.1' ,
+                                   'muon_col[LF_idx]["pfRelIso04_all"] < 0.4',
+                                 ] ,
+                                 # dxy for pT < 20 GeV
+                                 'muon_col[LF_idx]["pt"] <= 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.01 ' ,
+                                 ] ,
+                                 # dxy for pT > 20 GeV
+                                 'muon_col[LF_idx]["pt"] > 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.02 ' ,
+                                 ] ,
+                                  } ,
+
+                       } ,
+                 
+                 } ,
+
+ # ------------ 
+ 'TightObjWP' :  {
+
+      'cut_Tight_HWWW' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [ 
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' ,
+                                   'muon_col[LF_idx]["tightId"] == 1' ,
+                                   'abs(muon_col[LF_idx]["dz"]) < 0.1' ,
+                                   'muon_col[LF_idx]["pfRelIso04_all"] < 0.15',
+                                 ] ,
+                                 # dxy for pT < 20 GeV
+                                 'muon_col[LF_idx]["pt"] <= 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.01 ' ,
+                                 ] ,
+                                 # dxy for pT > 20 GeV
+                                 'muon_col[LF_idx]["pt"] > 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.02 ' ,
+                                 ] ,
+                                  } ,
+                         # Negligible, POG recommended to set to 1.
+                         #'tkSF':  { 
+                         #           '1-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muon_tracker_eff_Full2017.root' ,
+                         #         } ,
+                         #'tkSFerror': 0.01,
+                         'idSF':  {
+                                    '1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonID_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'isoSF': {
+                                    '1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonISO_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v2p2NewBinning/',
+
+
+                       } ,
+
+      'cut_Tight_HWWW_tthmva_80' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [ 
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' ,
+                                   'muon_col[LF_idx]["tightId"] == 1' ,
+                                   'abs(muon_col[LF_idx]["dz"]) < 0.1' ,
+                                   'muon_col[LF_idx]["pfRelIso04_all"] < 0.15',
+                                   'muon_col[LF_idx]["mvaTTH"] > 0.8',
+                                 ] ,
+                                 # dxy for pT < 20 GeV
+                                 'muon_col[LF_idx]["pt"] <= 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.01 ' ,
+                                 ] ,
+                                 # dxy for pT > 20 GeV
+                                 'muon_col[LF_idx]["pt"] > 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.02 ' ,
+                                 ] ,
+                                  } ,
+                         # Negligible, POG recommended to set to 1.
+                         #'tkSF':  { 
+                         #           '1-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muon_tracker_eff_Full2017.root' ,
+                         #         } ,
+                         #'tkSFerror': 0.01,
+                         'idSF':  {
+                                    #'1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonID_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'isoSF': {
+                                    #'1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonISO_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/tighterMuonWP/tthMVA/',
+
+
+                       } ,
+
+      'cut_Tight_HWWW_mva_Tight' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [ 
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' ,
+                                   'muon_col[LF_idx]["tightId"] == 1' ,
+                                   'abs(muon_col[LF_idx]["dz"]) < 0.1' ,
+                                   'muon_col[LF_idx]["pfRelIso04_all"] < 0.15',
+                                   'muon_col[LF_idx]["mvaId"] == "3"',
+                                 ] ,
+                                 # dxy for pT < 20 GeV
+                                 'muon_col[LF_idx]["pt"] <= 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.01 ' ,
+                                 ] ,
+                                 # dxy for pT > 20 GeV
+                                 'muon_col[LF_idx]["pt"] > 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.02 ' ,
+                                 ] ,
+                                  } ,
+                         # Negligible, POG recommended to set to 1.
+                         #'tkSF':  { 
+                         #           '1-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muon_tracker_eff_Full2017.root' ,
+                         #         } ,
+                         #'tkSFerror': 0.01,
+                         'idSF':  {
+                                    #'1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonID_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'isoSF': {
+                                    #'1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonISO_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/tighterMuonWP/mvaId/',
+
+
+                       } ,
+
+      'cut_Tight_HWWW_mva_Tight_miniIso_02' : {
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [ 
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' ,
+                                   'muon_col[LF_idx]["tightId"] == 1' ,
+                                   'abs(muon_col[LF_idx]["dz"]) < 0.1' ,
+                                   'muon_col[LF_idx]["pfRelIso04_all"] < 0.15',
+                                   'muon_col[LF_idx]["mvaId"] == "3"',
+                                   'muon_col[LF_idx]["miniPFRelIso_all"] < 0.2',
+                                 ] ,
+                                 # dxy for pT < 20 GeV
+                                 'muon_col[LF_idx]["pt"] <= 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.01 ' ,
+                                 ] ,
+                                 # dxy for pT > 20 GeV
+                                 'muon_col[LF_idx]["pt"] > 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.02 ' ,
+                                 ] ,
+                                  } ,
+                         # Negligible, POG recommended to set to 1.
+                         #'tkSF':  { 
+                         #           '1-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muon_tracker_eff_Full2017.root' ,
+                         #         } ,
+                         #'tkSFerror': 0.01,
+                         'idSF':  {
+                                    #'1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonID_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'isoSF': {
+                                    #'1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonISO_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'fakeW' : '/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v5/tighterMuonWP/mvaIdIso/',
+
+
+                       } ,
+
+                 } ,
+
+
+ # -------------
+ 'WgStarObjWP' : {
+     'cut_Tight_HWW' : { 
+                         'cuts' : { 
+                                # Common cuts
+                                'True' :
+                                 [
+                                   'abs(muon_col[LF_idx]["eta"]) < 2.4' ,
+                                   'muon_col[LF_idx]["tightId"] == 1' ,
+                                   'abs(muon_col[LF_idx]["dz"]) < 0.1' ,
+                                   #'(muon_col[LF_idx]["pfRelIso04_all"] - self.ConeOverlapPt(lepton_col, iLep)/muon_col[LF_idx]["pt"]) < 0.15',
+                                   ##'muon_col[LF_idx]["trackIso"]/muon_col[LF_idx]["pt"] < 0.4' ,
+                                 ] ,
+                                 # dxy for pT < 20 GeV
+                                 'muon_col[LF_idx]["pt"] <= 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.01 ' ,
+                                 ] ,
+                                 # dxy for pT > 20 GeV
+                                 'muon_col[LF_idx]["pt"] > 20.0' :
+                                 [
+                                    'abs(muon_col[LF_idx]["dxy"]) < 0.02 ' ,
+                                 ] ,
+                                  } ,
+                         'cuts_iso': {
+                                # Common cuts
+                                'True' :
+                                [
+                                  '0.15',
+                                ],
+                                # Low pt
+                                'muon_col[LF_idx]["pt"] <= 20.0' :
+                                [
+                                  'None' 
+                                ],
+                                # High pt
+                                'muon_col[LF_idx]["pt"] > 20.0' :
+                                [
+                                  'None' 
+                                ],
+                                  },
+                         'iso': ['pfRelIso04_all', 0.4],
+                         # Negligible, POG recommended to set to 1.
+                         #'tkSF':  {
+                         #           '1-5' : 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muon_tracker_eff_Full2017.root' ,
+                         #         } ,
+                         #'tkSFerror': 0.01,
+                         'idSF':  {
+                                    '1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonID_cut_Tight_HWW_combined.root'],
+                                  } ,
+                         'isoSF': {
+                                    '1-5' : [ 'LatinoAnalysis/NanoGardener/python/data/scale_factor/Full2017/muonISO_cut_Tight_HWW_combined.root'],
+                                  } ,
+                       } ,
+ 
+                 }, 
+},
+
+
 ##____________________Study2017_________________________
 'Study2017': {
 
@@ -4960,6 +5553,7 @@ MuonWP['Full2017v6'] = MuonWP['Full2017v2']
 MuonWP['Full2017v6']['TightObjWP']['cut_Tight_HWWW']['fakeW']='/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2017v6/mvaFall17V1IsoWP90/'
 MuonWP['Full2018v6'] = MuonWP['Full2018']
 MuonWP['Full2018v6']['TightObjWP']['cut_Tight_HWWW']['fakeW']='/LatinoAnalysis/NanoGardener/python/data/fake_prompt_rates/Full2018v6/mvaFall17V1IsoWP90/'
+
  
 if __name__ == '__main__':
     print('_______________LepFilter_dict___________')
