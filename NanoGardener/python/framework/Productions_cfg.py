@@ -406,6 +406,17 @@ Productions = {
                        'year'    : '2018' ,
                    },
 
+
+ # -------- 2018 DATA 102X nAODv5 for new WPs: Full2018v5
+'Run2018_102X_nAODv5_Full2018v5_ForNewWPs' : {
+                       'isData'  : True ,
+                       'jsonFile'   : '"%s/src/LatinoAnalysis/NanoGardener/python/data/certification/Cert_314472-325175_13TeV_17SeptEarlyReReco2018ABC_PromptEraD_Collisions18_JSON.txt"  % os.environ["CMSSW_BASE"]',
+                       'samples' : 'LatinoAnalysis/NanoGardener/python/framework/samples/Run2018_102X_nAODv5.py' ,
+                       'cmssw'   : 'Full2018v5_ForNewWPs',
+                       'year'    : '2018' ,
+                   },
+
+
  # -------- 2018 DATA 102X nAODv5: Full2017v6
 'Run2018_102X_nAODv5_Full2018v6' : {
                        'isData'  : True ,
