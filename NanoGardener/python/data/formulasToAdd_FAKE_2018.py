@@ -45,13 +45,12 @@ for name,btags in tagger.iteritems():
 
 '''
 
-muWP='cut_Tight_HWWW'
-eleWPlist = ['mvaFall17V1Iso_WP90', 'mvaFall17V1Iso_WP90_SS','mvaFall17V2Iso_WP90', 'mvaFall17V2Iso_WP90_SS']
-eleWPlist += ['cutFall17V1Iso_Tight','cutFall17V1Iso_Tight_SS','cutFall17V2Iso_Tight','cutFall17V2Iso_Tight_SS']
-#muWP='cut_Tight80x'
+muWPlist = ['cut_Tight_HWWW','cut_Tight_HWWW_tthmva_80']
+eleWPlist = ['mvaFall17V1Iso_WP90', 'mvaFall17V1Iso_WP90_SS','cutFall17V1Iso_Tight','cutFall17V1Iso_Tight_SS','mvaFall17V1Iso_WP90_tthmva_70']
 
 # event.nCleanJet should count the number of CleanJet's with pt above 30
 for eleWP in eleWPlist:
+   for muWP in muWPlist:
 
    Tag = 'ele_'+eleWP+'_mu_'+muWP
 
