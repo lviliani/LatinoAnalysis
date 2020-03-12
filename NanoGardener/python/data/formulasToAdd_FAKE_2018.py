@@ -46,7 +46,8 @@ for name,btags in tagger.iteritems():
 '''
 
 muWPlist = ['cut_Tight_HWWW','cut_Tight_HWWW_tthmva_80']
-eleWPlist = ['mvaFall17V1Iso_WP90', 'mvaFall17V1Iso_WP90_SS','cutFall17V1Iso_Tight','cutFall17V1Iso_Tight_SS','mvaFall17V1Iso_WP90_tthmva_70']
+eleWPlist = ['mvaFall17V1Iso_WP90', 'mvaFall17V1Iso_WP90_SS','mvaFall17V1Iso_WP90_tthmva_70','mvaFall17V1Iso_WP90_SS_tthmva_70']
+#eleWPlist = ['mvaFall17V1Iso_WP90', 'mvaFall17V1Iso_WP90_SS','cutFall17V1Iso_Tight','cutFall17V1Iso_Tight_SS','mvaFall17V1Iso_WP90_tthmva_70','mvaFall17V1Iso_WP90_SS_tthmva_70']
 
 # event.nCleanJet should count the number of CleanJet's with pt above 30
 for eleWP in eleWPlist:
