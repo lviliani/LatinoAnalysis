@@ -1792,8 +1792,15 @@ Steps = {
                   'isChain'    : True ,
                   'do4MC'      : False ,
                   'do4Data'    : True ,
-                  'subTargets' : ['leptonMaker','lepSel','fakeWstep','formulasFAKE'],
+                  'subTargets' : ['leptonMaker','lepSel','rochesterDATA','fakeWstep','formulasFAKE'],
                    },
+
+  'testLep' : {
+                  'isChain'    : True ,
+                  'do4MC'      : False ,
+                  'do4Data'    : True ,
+                  'subTargets' : ['leptonMaker','lepSel','rochesterDATA'],
+             }, 
     
   'fakeW1l'  : {
                 'isChain'    : True ,
